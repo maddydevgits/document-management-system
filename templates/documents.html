@@ -30,9 +30,9 @@
 		        <span class="fa fa-bars"></span> Menu
 		      </button>
 		      <div class="collapse navbar-collapse" id="ftco-nav">
-		        <ul class="navbar-nav ml-auto mr-md-3">
-		        	<li class="nav-item active"><a href="/dashboard" class="nav-link">Home</a></li>
-		        	<li class="nav-item"><a href="/documents" class="nav-link">My Documents</a></li>
+				<ul class="navbar-nav ml-auto mr-md-3">
+		        	<li class="nav-item"><a href="/dashboard" class="nav-link">Home</a></li>
+		        	<li class="nav-item active"><a href="/documents" class="nav-link">My Documents</a></li>
 					<li class="nav-item"><a href="/shareDocument" class="nav-link">Share Documents</a></li>
                     <li class="nav-item"><a href="/sharedDocuments" class="nav-link">Shared Documents</a></li>
 					<li class="nav-item"><a href="/buddyDocuments" class="nav-link">Buddy Documents</a></li>
@@ -44,23 +44,27 @@
     <!-- END nav -->
   </div>
 	</section>
-    <section class="sign-in">
+    
         <div class="container">
-            <div class="signin-content">
-                <h3>Upload your Documents</h3>
-                <form action="/uploadDocument" method="POST" enctype="multipart/form-data">
-                <div class="file-upload">
-                    <div class="file-select">
-                      <div class="file-select-button" id="fileName">Choose File</div>
-                      <div class="file-select-name" id="noFile">No file chosen...</div> 
-                      <input type="file" name="chooseFile" id="chooseFile">
-                    </div>
-                </div> <br/>
-                <button type="submit" class="btn btn-primary">Upload</button>
-                </form>
-            </div>
+                <h3>List of Documents in my Bucket</h3>
+                <div class="table-responsive-sm">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Document Id</th>
+                            <th>Document Owner</th>
+                            <th>Document Link</th>
+                        </tr>
+                        {%for i in range(0, len)%}
+                        <tr>
+                            <td>{{dashboard_data[i][0]}}</td>
+                            <td>{{dashboard_data[i][1]}}</td>
+                            <td><a href={{dashboard_data[i][2]}}>{{dashboard_data[i][0]}}</a></td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+				</div>
         </div>
-    </section>
+   
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
   <script src="{{url_for('static',filename='js/popper.js')}}"></script>

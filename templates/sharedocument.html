@@ -31,9 +31,9 @@
 		      </button>
 		      <div class="collapse navbar-collapse" id="ftco-nav">
 		        <ul class="navbar-nav ml-auto mr-md-3">
-		        	<li class="nav-item active"><a href="/dashboard" class="nav-link">Home</a></li>
+		        	<li class="nav-item"><a href="/dashboard" class="nav-link">Home</a></li>
 		        	<li class="nav-item"><a href="/documents" class="nav-link">My Documents</a></li>
-					<li class="nav-item"><a href="/shareDocument" class="nav-link">Share Documents</a></li>
+					<li class="nav-item active"><a href="/shareDocument" class="nav-link">Share Documents</a></li>
                     <li class="nav-item"><a href="/sharedDocuments" class="nav-link">Shared Documents</a></li>
 					<li class="nav-item"><a href="/buddyDocuments" class="nav-link">Buddy Documents</a></li>
 		        	<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
@@ -44,23 +44,30 @@
     <!-- END nav -->
   </div>
 	</section>
-    <section class="sign-in">
+    
         <div class="container">
-            <div class="signin-content">
-                <h3>Upload your Documents</h3>
-                <form action="/uploadDocument" method="POST" enctype="multipart/form-data">
-                <div class="file-upload">
-                    <div class="file-select">
-                      <div class="file-select-button" id="fileName">Choose File</div>
-                      <div class="file-select-name" id="noFile">No file chosen...</div> 
-                      <input type="file" name="chooseFile" id="chooseFile">
+                <h3>Share Documents with Buddy</h3>
+                <form action="/toShareBuddy" method="POST">
+                    <div class="form-group">
+                        <label for="sel1">Select Buddy:</label>
+                        <select class="form-control" id="userId" name='userId'>
+                            {%for i in range(0, len)%}
+                            <option value={{dashboard_data[i]}}>{{dashboard_data[i]}}</option>
+                            {%endfor%}
+                        </select>
                     </div>
-                </div> <br/>
-                <button type="submit" class="btn btn-primary">Upload</button>
+                    <div class="form-group">
+                        <label for="sel1">Select Document you want to share:</label>
+                        <select class="form-control" id="docID" name='docID'>
+                            {%for i in range(0, len1)%}
+                            <option>{{dashboard_data1[i]}}</option>
+                            {%endfor%}
+                        </select>
+                    </div>
+                    <button class="btn btn-primary">Share Document</button>
                 </form>
-            </div>
         </div>
-    </section>
+   
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
   <script src="{{url_for('static',filename='js/popper.js')}}"></script>
