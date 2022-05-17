@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
@@ -30,35 +31,34 @@
 		      </button>
 		      <div class="collapse navbar-collapse" id="ftco-nav">
 		        <ul class="navbar-nav ml-auto mr-md-3">
-		        	<li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">Accessories</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">Shop</a></li>
-		        	<li class="nav-item"><a href="#" class="nav-link">Products</a></li>
-		          <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
-		          <li class="dropdown nav-item d-md-flex align-items-center">
-                <a href="#" class="dropdown-toggle nav-link d-flex align-items-center justify-content-center icon-cart p-0" id="dropdown04" data-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-shopping-cart"></i>
-                  <b class="caret"></b>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
-                  <a href="#" class="dropdown-item">Action</a>
-                  <a href="#" class="dropdown-item">Another action</a>
-                  <a href="#" class="dropdown-item">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Separated link</a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">One more separated link</a>
-                </div>
-              </li>
+		        	<li class="nav-item active"><a href="/dashboard" class="nav-link">Home</a></li>
+		        	<li class="nav-item"><a href="/documents" class="nav-link">Documents</a></li>
+		        	<li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
 		        </ul>
 		      </div>
 		    </div>
 		  </nav>
     <!-- END nav -->
   </div>
-
 	</section>
-
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <h3>Upload your Documents</h3>
+                <form action="/uploadDocument" method="POST" enctype="multipart/form-data">
+                <div class="file-upload">
+                    <div class="file-select">
+                      <div class="file-select-button" id="fileName">Choose File</div>
+                      <div class="file-select-name" id="noFile">No file chosen...</div> 
+                      <input type="file" name="chooseFile" id="chooseFile">
+                    </div>
+                </div> <br/>
+                <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
   <script src="{{url_for('static',filename='js/popper.js')}}"></script>
   <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>

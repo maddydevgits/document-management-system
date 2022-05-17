@@ -1,5 +1,8 @@
 from flask import Flask,render_template,redirect,request,session
 import json
+import os
+from werkzeug.utils import secure_filename
+
 def store_data_into_db(name,email,password):
     data={}
     data['name']=name
@@ -19,6 +22,7 @@ def read_data_from_db():
 
 app=Flask(__name__)
 app.secret_key='makeskilled'
+app.config["UPLOAD_FOLDER"] = "uploads/"
 
 @app.route('/')
 def indexPage():
@@ -49,6 +53,13 @@ def loginUser():
         if (dummy['name']==name and dummy['password']==password):
             return redirect('/dashboard')
     return render_template('index.html')
+
+@app.route('/uploadDocument',methods=['POST','GET'])
+def uploadDocument():
+    doc=request.files['chooseFile']
+    doc1=secure_filename(doc.filename)
+    doc.save(app.config['UPLOAD_FOLDER']+doc1)
+    return render_template('dashboard.html')
 
 if __name__=="__main__":
     app.run(debug=True,host='0.0.0.0')
