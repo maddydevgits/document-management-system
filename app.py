@@ -7,7 +7,8 @@ def store_data_into_db(name,email,password):
     data['password']=password
     data=json.dumps(data)
     f=open('dataset.txt','a')
-    f.writelines(data)
+    f.writelines(data) 
+    f.write('\n')
     f.close()
 
 def read_data_from_db():
@@ -22,6 +23,10 @@ app.secret_key='makeskilled'
 @app.route('/')
 def indexPage():
     return render_template('index.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
 
 @app.route('/registerUser',methods=['GET','POST'])
 def registerUser():
