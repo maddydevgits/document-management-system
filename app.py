@@ -34,7 +34,7 @@ def shareFilestoUser(email,fileId):
     data['email']=email
     data['fileId']=fileId
     data=json.dumps(data)
-    f.write('\n')
+    f.write('/n')
     f.writelines(data)
     f.close()
     
