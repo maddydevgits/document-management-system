@@ -1,3 +1,0 @@
-
-{"user": "sravanigalla1221@gmail.com", "email": "parvathanenimadhu@gmail.com", "fileId": "Sravani/sample1.R"}
-{"user": "parvathanenimadhu@gmail.com", "email": "sravanigalla1221@gmail.com", "fileId": "Madhu/12C-commands.txt"}

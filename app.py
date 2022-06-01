@@ -17,7 +17,7 @@ def store_data_into_db(name,email,password):
     data['password']=password
     data=json.dumps(data)
     f=open('dataset.txt','a')
-    f.write('/n')
+    f.write('\n')
     f.writelines(data) 
     f.close()
 
@@ -34,7 +34,7 @@ def shareFilestoUser(email,fileId):
     data['email']=email
     data['fileId']=fileId
     data=json.dumps(data)
-    f.write('/n')
+    f.write('\n')
     f.writelines(data)
     f.close()
     

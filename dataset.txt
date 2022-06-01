@@ -1,2 +1,3 @@
-{"name": "Madhu", "email": "parvathanenimadhu@gmail.com", "password": "1234"}
+
+{"name": "Madhu Parvathaneni", "email": "parvathanenimadhu@gmail.com", "password": "1234"}
 {"name": "Sravani", "email": "sravanigalla1221@gmail.com", "password": "1234"}
